@@ -136,14 +136,14 @@ def buildNP(model, data_set):
         if model.wv.has_index_for(data_set[i]):
             result_data_set_vector.append(model.wv.get_vector(data_set[i]))
             words = model.wv.similar_by_word(data_set[i], topn=10)
-            ont_hot = []
+            one_hot = []
             for j in range(len(model.wv.vectors)):
-                ont_hot.append(0)
-            ont_hot[model.wv.get_index(data_set[i])] = 1
+                one_hot.append(0)
+            one_hot[model.wv.get_index(data_set[i])] = 1
             for j in range(len(words)):
                 w, p = words[j]
-                ont_hot[model.wv.get_index(w)] = 1
-            result_data_set.append(ont_hot)
+                one_hot[model.wv.get_index(w)] = 1
+            result_data_set.append(one_hot)
     data_set = np.array(result_data_set, dtype=np.float32)
     data_set_vector = np.array(result_data_set_vector, dtype=np.float32)
     return data_set, data_set_vector
