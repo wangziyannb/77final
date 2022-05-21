@@ -4,7 +4,6 @@
 # @Author  : Wang Ziyan Yijing Liao
 # @File    : main.py
 # @Software: PyCharm
-
 from torch import nn
 
 
